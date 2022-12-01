@@ -1,0 +1,44 @@
+@model IEnumerable<ProjetoLp3.Models.Cliente>
+@{
+    ViewData["Title"] = "Clientes";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(Model.Count() == 0)
+{
+    <p>Nenhum cliente cadastrado</p>
+    <a class="btn btn-outline-dark" asp-controller="Cliente" asp-action="Add">Cadastre um novo Cliente</a>
+}
+else
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>Idade</th>
+                <th>Endereco</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var cliente in Model)
+            {
+                <tr>
+                    <td>@cliente.Codigo</td>
+                    <td>@cliente.Nome</td>
+                    <td>@cliente.Cpf</td>
+                    <td>@cliente.Idade</td>
+                    <td>@cliente.Endereco</td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-controller="Cliente" asp-action="Show" asp-route-id="@cliente.Codigo">Ver</a>
+                        <a class="btn btn-outline-light" asp-controller="Cliente" asp-action="Update" asp-route-id="@cliente.Codigo">Update</a>
+                        <a class="btn btn-outline-danger" asp-controller="Cliente" asp-action="Delete" asp-route-id="@cliente.Codigo">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-dark" asp-controller="Cliente" asp-action="Add">Cadastre um novo Cliente</a>
+}

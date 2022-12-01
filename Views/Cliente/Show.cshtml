@@ -1,0 +1,12 @@
+@model ProjetoLp3.Models.Cliente
+@{
+    ViewData["Title"] = $"Cliente {Model.Codigo}";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p><b>Codigo: </b>@Model.Codigo</p>
+<p><b>Nome: </b>@Model.Nome</p>
+<p><b>Cpf: </b>@Model.Cpf</p>
+<p><b>Idade: </b>@Model.Idade</p>
+<p><b>Endereco: </b>@Model.Endereco</p>
+

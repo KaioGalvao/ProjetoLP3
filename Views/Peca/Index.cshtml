@@ -1,0 +1,37 @@
+@model IEnumerable<ProjetoLp3.Models.Peca>
+@{
+    ViewData["Title"] = "Pecas";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(Model.Count() == 0)
+{
+    <p>Nenhum peca cadastrada</p>
+    <a class="btn btn-outline-dark" asp-controller="Peca" asp-action="Add">Cadastre uma nova Peca</a>
+}
+else
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var peca in Model)
+            {
+                <tr>
+                    <td>@peca.Codigo</td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-controller="Peca" asp-action="Show" asp-route-id="@peca.Codigo">Ver</a>
+                        <a class="btn btn-outline-light" asp-controller="Peca" asp-action="Update" asp-route-id="@peca.Codigo">Update</a>
+                        <a class="btn btn-outline-danger" asp-controller="Peca" asp-action="Delete" asp-route-id="@peca.Codigo">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-dark" asp-controller="Peca" asp-action="Add">Cadastre um novo Peca</a>
+}

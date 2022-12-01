@@ -1,0 +1,42 @@
+@model IEnumerable<ProjetoLp3.Models.Moto>
+@{
+    ViewData["Title"] = "Motos";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(Model.Count() == 0)
+{
+    <p>Nenhum moto cadastrado</p>
+    <a class="btn btn-outline-dark" asp-controller="Moto" asp-action="Add">Cadastre um novo Moto</a>
+}
+else
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Cor</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var moto in Model)
+            {
+                <tr>
+                    <td>@moto.Codigo</td>
+                    <td>@moto.Marca</td>
+                    <td>@moto.Modelo</td>
+                    <td>@moto.Cor</td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-controller="Moto" asp-action="Show" asp-route-id="@moto.Codigo">Ver</a>
+                        <a class="btn btn-outline-light" asp-controller="Moto" asp-action="Update" asp-route-id="@moto.Codigo">Update</a>
+                        <a class="btn btn-outline-danger" asp-controller="Moto" asp-action="Delete" asp-route-id="@moto.Codigo">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-dark" asp-controller="Moto" asp-action="Add">Cadastre um novo Moto</a>
+}

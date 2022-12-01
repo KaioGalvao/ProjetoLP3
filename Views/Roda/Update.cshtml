@@ -1,0 +1,16 @@
+@model ProjetoLp3.Models.Roda
+@{
+    ViewData["Title"] = "Atualizar Roda";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Utilize o formulário para Atualizar a peca</p>
+
+<form class="form" asp-controller="Roda" asp-action="Update" asp-route-id="@Model.Codigo" method="POST">
+    
+    <label for="Aro">Aro</label>
+    <input type="text" id="Aro" value="@Model.Aro" name="Aro" asp-for="@Model.Aro">
+    <span asp-validation-for="@Model.Aro" class="text-danger"></span>
+    
+    <input class="submit" type="submit" value="Atualizar">
+</form>

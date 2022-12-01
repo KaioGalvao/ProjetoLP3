@@ -1,0 +1,24 @@
+@model ProjetoLp3.Models.Carro
+@{
+    ViewData["Title"] = "Atualizar Carro";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Utilize o formulário para Atualizar o carro</p>
+
+<form class="form" asp-controller="Carro" asp-action="Update" asp-route-id="@Model.Codigo" method="POST">
+    
+    <label for="Marca">Marca</label>
+    <input type="text" id="Marca" value="@Model.Marca" name="Marca" asp-for="@Model.Marca">
+    <span asp-validation-for="@Model.Marca" class="text-danger"></span>
+    
+    <label for="Modelo">Modelo</label>
+    <input type="text" id="Modelo" value="@Model.Modelo" name="Modelo" asp-for="@Model.Modelo">
+    <span asp-validation-for="@Model.Modelo" class="text-danger"></span>
+
+    <label for="Cor">Cor</label>
+    <input type="text" id="Cor" value="@Model.Cor" name="Cor" asp-for="@Model.Cor">
+    <span asp-validation-for="@Model.Cor" class="text-danger"></span>
+
+    <input class="submit" type="submit" value="Atualizar">
+</form>

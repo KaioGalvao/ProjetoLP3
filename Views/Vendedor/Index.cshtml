@@ -1,0 +1,37 @@
+@model IEnumerable<ProjetoLp3.Models.Vendedor>
+@{
+    ViewData["Title"] = "Vendedores";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(Model.Count() == 0)
+{
+    <p>Nenhum vendedor cadastrado</p>
+    <a class="btn btn-outline-dark" asp-controller="Vendedor" asp-action="Add">Cadastre um novo Vendedor</a>
+}
+else
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var vendedor in Model)
+            {
+                <tr>
+                    <td>@vendedor.Codigo</td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-controller="Vendedor" asp-action="Show" asp-route-id="@vendedor.Codigo">Ver</a>
+                        <a class="btn btn-outline-light" asp-controller="Vendedor" asp-action="Update" asp-route-id="@vendedor.Codigo">Update</a>
+                        <a class="btn btn-outline-danger" asp-controller="Vendedor" asp-action="Delete" asp-route-id="@vendedor.Codigo">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-dark" asp-controller="Vendedor" asp-action="Add">Cadastre um novo Vendedor</a>
+}

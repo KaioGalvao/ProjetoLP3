@@ -1,0 +1,27 @@
+@model ProjetoLp3.Models.Carro
+@{
+    ViewData["Title"] = "Cadastrar Carro";
+}
+<h1>@ViewData["Title"]</h1>
+<p>Utilize o formulário para Cadastrar um Carro</p>
+
+<form class="form" asp-controller="Carro" asp-action="Add" method="POST">
+
+    <label for="Codigo">Codigo</label>
+    <input type="number" id="Codigo" name="Codigo" asp-for="@Model.Codigo">
+    <span asp-validation-for="@Model.Codigo" class="text-danger"></span>
+
+    <label for="Marca">Marca</label>
+    <input type="text" id="Marca" name="Marca" asp-for="@Model.Marca">
+    <span asp-validation-for="@Model.Marca" class="text-danger"></span>
+
+    <label for="Modelo">Modelo</label>
+    <input type="text" id="Modelo" name="Modelo" asp-for="@Model.Modelo">
+    <span asp-validation-for="@Model.Modelo" class="text-danger"></span>
+
+    <label for="Cor">Cor</label>
+    <input type="text" id="Cor" name="Cor" asp-for="@Model.Cor">
+    <span asp-validation-for="@Model.Cor" class="text-danger"></span>
+
+    <input class="submit" type="submit" value="Adicionar">
+</form>
